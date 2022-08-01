@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$6(-15r%x8-gv(2xuvb&vvnf93cec8t%1#-56zm#6oh!32uplp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web.co6rde77tk3l.us-east-1.rds.amazonaws.com', '127.0.0.1', '34.224.108.22']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
+    'ciclismo',
+    'home',
+    'proyectos',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +79,15 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'web', 
+        'USER': 'samuel', 
+        'PASSWORD': '0516-Sa-05',
+        'HOST': 'web.co6rde77tk3l.us-east-1.rds.amazonaws.com', 
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
