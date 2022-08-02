@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
   </head>
-    <body class="dark:bg-gray-800">
+    <body class="dark:bg-gray-800" style="font-family: Georgia, serif;">
         <div class="container mx-auto">
 
             <nav class="z-10 sticky top-0 bg-white border-gray-200 px-2 sm:px-4 py-5 dark:bg-gray-800">
@@ -67,6 +67,21 @@
             {% block content %}
         
             {% endblock content %}
+
+
+            <footer
+                class=" p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">Samuel Angulo, 2022 </span>
+                <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+                    <li>
+                        <a href="https://twitter.com/sam_angulo_" class="mr-4 hover:underline md:mr-6"
+                            target="_blank">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mvmeo" class="mr-4 hover:underline md:mr-6" target="_blank">Github</a>
+                    </li>
+                </ul>
+            </footer>
         </div>
 
     <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>

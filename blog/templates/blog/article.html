@@ -1,16 +1,26 @@
 {% extends 'blog/base.html' %}
 {% block title %}{{post.title}}{% endblock title %}
 {% block content %}
-<h1>{{post.title}}</h1>
-<small>By: {{post.author.first_name}} {{post.author.last_name}}</small><br>
-<hr>
-<br>
-{% if post.header_image %}
-    <img src="{{ post.header_image.url }}" alt="">
-{% endif %}
+<div class="container mx-auto">
+    <!-- siempre horizontal par el thumbnail -->
+    <div class="relative bg-cover thumb"
+        style="background-image: url('{{ post.header_image.url }}'); background-position: center; height: 600px">
+        <!--personalizar título-->
+        <h1 class="absolute bottom-0 left-0 text-white md:text-6xl text-5xl font-bold p-5">{{post.title}}.</h2>
+    </div>
 
-<br>
-<p>{{post.body | linebreaks}}</p>
-<br><br>
-<a href="{% url 'home' %}">Back</a>
+</div>
+
+<div class="text-lg dark:text-white p-6 lg:max-w-screen-md mx-auto">
+    <!--personalizar contenido-->
+    <p class="text-justify whitespace-pre-line">{{post.body}}</p>
+
+    <br>
+    <div class="flex items-center p-3">
+        <div class="text-sm">
+            <!--personalizar fecha-->
+            <p class="text-gray-500">Escrito por <a class="hover:underline" href="#">{{post.author.first_name}} {{post.author.last_name}}</a> - {{ post.post_date }}</p>
+        </div>
+    </div>
+</div>
 {% endblock content %}
