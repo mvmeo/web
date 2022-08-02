@@ -5,7 +5,12 @@
 <small>By: {{post.author.first_name}} {{post.author.last_name}}</small><br>
 <hr>
 <br>
-<p>{{post.body}}</p>
+{% if post.header_image %}
+    <img src="{{ post.header_image.url }}" alt="">
+{% endif %}
+
+<br>
+<p>{{post.body | linebreaks}}</p>
 <br><br>
 <a href="{% url 'home' %}">Back</a>
 {% endblock content %}
