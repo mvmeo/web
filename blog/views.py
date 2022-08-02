@@ -1,7 +1,5 @@
-from django.http import HttpResponse
-from django.template import loader
 from django.views.generic import ListView, DetailView, CreateView
-
+from .forms import PostForm
 from .models import Post
 
 # Create your views here.
@@ -14,6 +12,7 @@ from .models import Post
 class HomeView(ListView):
     model = Post
     template_name = 'blog/index.html'
+    ordering = ['-post_date']
 
 
 class ArticleView(DetailView):
@@ -22,6 +21,7 @@ class ArticleView(DetailView):
 
 class AddPostView(CreateView):
     model = Post
+    form_class = PostForm
     template_name: str = 'blog/add_post.html'
-    fields = ['title', 'author', 'body']
+    # fields = ['title', 'author', 'body']
 

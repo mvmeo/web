@@ -18,14 +18,14 @@
                 </div>
                 <!--personalizar resumen-->
                 <p class="text-gray-700 text-base">
-                    {{ post.body | truncatechars:100 }}
+                    {{ post.resume }}
                 </p>
             </div>
         </a>
         <div class="flex items-center">
             <div class="text-sm">
                 <a href="https://twitter.com/sam_angulo_">
-                    <p class="text-gray-900 leading-none">Escrito por {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                    <p class="text-gray-900 leading-none">Escrito por {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</p>
                 </a>
             </div>
         </div>
