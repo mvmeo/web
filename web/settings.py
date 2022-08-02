@@ -23,15 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-$6(-15r%x8-gv(2xuvb&vvnf93cec8t%1#-56zm#6oh!32uplp'
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# ALLOWED_HOSTS = ['web.co6rde77tk3l.us-east-1.rds.amazonaws.com', '127.0.0.1', '34.224.108.22']
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOST", "127.0.0.1,localhost").split(",")
 
 
@@ -89,11 +86,11 @@ if os.getenv("DATABASE_URL", "") != "":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.path.relpath(r.path, "/"), 
-            'USER': r.username, 
-            'PASSWORD': r.password,
-            'HOST': r.hostname, 
-            'PORT': r.port,
+            'NAME': os.environ['NAMEDB'], 
+            'USER': os.environ['USERDB'], 
+            'PASSWORD': os.environ['PASSDB'],
+            'HOST': os.environ['HOSTDB'], 
+            'PORT': os.environ['PORTDB'],
             'OPTIONS': {"sslmode": "require"},
         }
     }
